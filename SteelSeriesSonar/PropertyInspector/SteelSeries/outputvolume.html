@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>MrAyianaLex's Sonar plugin</title>
+    <link rel="stylesheet" href="../css/sdpi.css">
+    <script src="../js/sdtools.common.js"></script>
+    <script src="../js/hiddendiv.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Device</div>
+            <select class="sdpi-item-value select sdProperty" id="outputDevice" oninput="setSettings()">
+                <option value="0">Monitoring</option>
+                <option value="1">Streaming</option>
+            </select>
+        </div>
+        <div type="radio" class="sdpi-item" id="rdAction">
+            <div class="sdpi-item-label">Action</div>
+            <div class="sdpi-item-value ">
+                <div class="sdpi-item-child">
+                    <input id="muteDevice" switchtarget="rdMute" class="sdProperty sdCheckbox" type="radio" name="rdApplication" oninput="setSettings(); updateDisplay('volume',this);">
+                    <label for="muteDevice" class="sdpi-item-label"><span></span>Mute</label>
+                </div>
+                <div class="sdpi-item-child">
+                    <input id="adjustVolume" switchtarget="step-item" class="sdProperty sdCheckbox" type="radio" name="rdApplication" oninput="setSettings(); updateDisplay('volume',this);">
+                    <label for="adjustVolume" class="sdpi-item-label"><span></span>Adjust Volume</label>
+                </div>
+                <div class="sdpi-item-child">
+                    <input id="setVolume" switchtarget="set-item" class="sdProperty sdCheckbox" type="radio" name="rdApplication" oninput="setSettings(); updateDisplay('volume',this);">
+                    <label for="setVolume" class="sdpi-item-label"><span></span>Set Volume</label>
+                </div>
+            </div>
+        </div>
+        <div id="rdMute" style="display: none;">
+            <div type="radio" class="sdpi-item">
+                <div class="sdpi-item-label">Mute</div>
+                <div class="sdpi-item-value ">
+                    <div class="sdpi-item-child">
+                        <input id="mute_on" class="sdProperty sdCheckbox" type="radio" name="radioMute" oninput="setSettings()">
+                        <label for="mute_on" class="sdpi-item-label"><span></span>Mute</label>
+                    </div>
+                    <div class="sdpi-item-child">
+                        <input id="mute_switch" class="sdProperty sdCheckbox" type="radio" name="radioMute" oninput="setSettings()">
+                        <label for="mute_switch" class="sdpi-item-label"><span></span>Switch</label>
+                    </div>
+                    <div class="sdpi-item-child">
+                        <input id="mute_off" class="sdProperty sdCheckbox" type="radio" name="radioMute" oninput="setSettings()">
+                        <label for="mute_off" class="sdpi-item-label"><span></span>Unmute</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-item" style="display: none;">
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Step Size</div>
+                <div class="sdpi-item-value">
+                    <span id="min" class="clickable" value="-5">-5</span>
+                    <input class="sdProperty floating-tooltip" type="range" min="-5" max="5" step="1" name="volumeStep" id="step" style="display: inline-block;" oninput="setSettings()">
+                    <span id="max" class="clickable" value="5">5</span>
+                </div>
+            </div>
+        </div>
+        <div id="set-item" style="display: none;">
+            <div class="sdpi-item">
+                <div class="sdpi-item-label">Volume</div>
+                <div class="sdpi-item-value">
+                    <input name="volumeValue" id="volumeValue" type="number" min="0" max="100" class="sdProperty" oninput="setSettings()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sdpi-info-label" style="top: -1000;" value=""></div>
+    <script src="../js/stepsize.js"></script>
+    <script>setToolTipListeners();</script>
+</body>
+</html>

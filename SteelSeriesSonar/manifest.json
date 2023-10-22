@@ -1,0 +1,214 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/switch_mode_switch",
+      "Name": "Switch Mode",
+      "States": [
+        {
+          "Name": "Classic",
+          "Image": "Images/set_monitoring_speaker_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        },
+        {
+          "Name": "Stream",
+          "Image": "Images/dial_streaming_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Affecte/Switch Classic or Stream mode.",
+      "UUID": "com.mrayianalex.sonar.switchmode",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/switchmode.html"
+    },
+    {
+      "Icon": "Images/dial_chatmix_mono",
+      "Name": "Chat Mix",
+      "States": [
+        {
+          "Image": "Images/dial_chatmix_mono",
+          "TitleAlignment": "middle",
+          "FontSize": "13"
+        }
+      ],
+      "Controllers": [ "Encoder" ],
+      "Encoder": {
+        "layout": "DialRender/dialchatmix.json",
+        "TriggerDescription": {
+          "Rotate": "More Game/More Chat",
+          "Push": "Reset",
+          "Touch": "Inverse",
+          "LongTouch": "Disabled"
+        }
+      },
+      "SupportedInMultiActions": false,
+      "DisableCaching": true,
+      "UserTitleEnabled": false,
+      "Tooltip": "Display and control chatmix balance.",
+      "UUID": "com.mrayianalex.sonar.dialchatmix",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/dialmixchat.html"
+    },
+    {
+      "Icon": "Images/dial_micro_mono",
+      "Name": "Input Device config",
+      "States": [
+        {
+          "Image": "Images/dial_micro_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Affecte/Switch input device",
+      "UUID": "com.mrayianalex.sonar.switchinputdevice",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/switchinputdevice.html"
+    },
+    {
+      "Icon": "Images/dial_micro_mono",
+      "Name": "Input Volume",
+      "States": [
+        {
+          "Name": "Monitoring",
+          "Image": "Images/dial_micro_mono",
+          "TitleAlignment": "middle",
+          "FontSize": "13"
+        }
+      ],
+      "Controllers": [ "Encoder" ],
+      "Encoder": {
+        "layout": "DialRender/dialvolume.json",
+        "TriggerDescription": {
+          "Rotate": "Decrease/Increase",
+          "Push": "Mute",
+          "Touch": "Mute",
+          "LongTouch": "Disabled"
+        }
+      },
+      "SupportedInMultiActions": false,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Display and control input volume",
+      "UUID": "com.mrayianalex.sonar.dialinputvolume",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/dialinputvolume.html"
+    },
+    {
+      "Icon": "Images/set_micro_mono",
+      "Name": "Input volume",
+      "States": [
+        {
+          "Image": "Images/set_micro_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Set Device - Set input config (Adjust volume, Set Volume, Set Mute)",
+      "UUID": "com.mrayianalex.sonar.inputvolume",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/inputvolume.html"
+    },
+    {
+      "Icon": "Images/set_monitoring_speaker_mono",
+      "Name": "Output Device config",
+      "States": [
+        {
+          "Image": "Images/set_monitoring_speaker_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Affecte/Switch output device",
+      "UUID": "com.mrayianalex.sonar.switchoutputdevice",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/switchoutputdevice.html"
+    },
+    {
+      "Icon": "Images/set_monitoring_speaker_mono",
+      "Name": "Output Volume",
+      "States": [
+        {
+          "Name": "Monitoring",
+          "Image": "Images/set_monitoring_speaker_mono",
+          "TitleAlignment": "middle",
+          "FontSize": "13"
+        }
+      ],
+      "Controllers": [ "Encoder" ],
+      "Encoder": {
+        "layout": "DialRender/dialvolume.json",
+        "TriggerDescription": {
+          "Rotate": "Decrease/Increase",
+          "Push": "Mute",
+          "Touch": "Mute",
+          "LongTouch": "Disabled"
+        }
+      },
+      "SupportedInMultiActions": false,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Display and control output volume.",
+      "UUID": "com.mrayianalex.sonar.dialoutputvolume",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/dialoutputvolume.html"
+    },
+    {
+      "Icon": "Images/volume_set",
+      "Name": "Output volume",
+      "States": [
+        {
+          "Image": "Images/volume_set",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Modify Setting - Set output config (Adjust volume, Set Volume, Set Mute)",
+      "UUID": "com.mrayianalex.sonar.outputvolume",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/outputvolume.html"
+    },
+    {
+      "Icon": "Images/stream_return",
+      "Name": "Return stream",
+      "States": [
+        {
+          "Image": "Images/stream_return",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Enabled/Disabled streaming return",
+      "UUID": "com.mrayianalex.sonar.switchstreamreturn"
+    }
+  ],
+  "Author": "MrAyianaLex",
+  "Description": "SteelSeries Sonar integration and live feedback. Includes Dials.",
+  "Name": "SteelSeries Sonar Integration",
+  "Icon": "Images/pluginIcon",
+  "URL": "",
+  "Version": "1.0",
+  "CodePath": "com.mrayianalex.sonar.exe",
+  "Category": "SteelSeries Sonar [MrAyianaLex]",
+  "CategoryIcon": "Images/pluginIcon",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.0"
+  }
+}

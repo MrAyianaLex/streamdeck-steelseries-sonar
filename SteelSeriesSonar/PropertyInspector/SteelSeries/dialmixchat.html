@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>MrAyianaLex's Sonar plugin</title>
+    <link rel="stylesheet" href="../css/sdpi.css">
+    <script src="../js/sdtools.common.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <br/>
+        <div id="step-item" type="range" class="sdpi-item">
+            <div class="sdpi-item-label" data-localize>Step Size</div>
+            <div class="sdpi-item-value">
+                <span id="min" class="clickable" value="1">1</span>
+                <input class="sdProperty floating-tooltip"
+                       data-suffix=" %"
+                       type="range"
+                       min="1"
+                       max="5"
+                       step="1"
+                       name="volumeStep"
+                       id="step"
+                       style="display: inline-block;"
+                       oninput="setSettings()" />
+                <span id="max" class="clickable" value="5">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="sdpi-info-label hidden" style="top: -1000;" value=""></div>
+    <script src="../js/stepsize.js"></script>
+    <script>setToolTipListeners();</script>
+</body>
+</html>
