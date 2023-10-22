@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesSonar", "SteelSeriesSonar.csproj", "{331D6526-A931-4ABA-8EAA-7F42385C4AB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{331D6526-A931-4ABA-8EAA-7F42385C4AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331D6526-A931-4ABA-8EAA-7F42385C4AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331D6526-A931-4ABA-8EAA-7F42385C4AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331D6526-A931-4ABA-8EAA-7F42385C4AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {019D675F-7115-4C56-8D37-6572AEB1FF62}
+	EndGlobalSection
+EndGlobal

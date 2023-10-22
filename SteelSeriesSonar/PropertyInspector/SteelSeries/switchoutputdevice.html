@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>MrAyianaLex's Sonar plugin</title>
+    <link rel="stylesheet" href="../css/sdpi.css">
+    <script src="../js/sdtools.common.js"></script>
+    <script src="../js/hiddendiv.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Device</div>
+            <select class="sdpi-item-value select sdProperty" id="modeTarget" oninput="setSettings(); updateDisplay('modeSwitch', this);">
+                <option value=""></option>
+                <option value="1">Classic</option>
+                <option value="2">Stream</option>
+            </select>
+        </div>
+        <div id="selectClassic" style="display: none;">
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Target</div>
+                <select class="sdpi-item-value select sdProperty" id="inputDeviceClassic" oninput="setSettings();">
+                    <option value="0">Game</option>
+                    <option value="1">Chat</option>
+                    <option value="2">Media</option>
+                    <option value="3">Aux</option>
+                </select>
+            </div>
+        </div>
+        <div id="selectStream" style="display: none;">
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Target</div>
+                <select class="sdpi-item-value select sdProperty" id="inputDeviceStream" oninput="setSettings();">
+                    <option value="0">Monitoring</option>
+                    <option value="1">Streaming</option>
+                </select>
+            </div>
+        </div>
+        <div type="radio" class="sdpi-item" id="rdAction">
+            <div class="sdpi-item-label">Action</div>
+            <div class="sdpi-item-value ">
+                <div class="sdpi-item-child">
+                    <input id="actionSet" switchtarget="actionSetDiv" class="sdProperty sdCheckbox" type="radio" name="rdAction" oninput="setSettings(); updateDisplay('deviceSwitch', this); refreshDevice();">
+                    <label for="actionSet" class="sdpi-item-label"><span></span>Define</label>
+                </div>
+                <div class="sdpi-item-child">
+                    <input id="actionSwitch" switchtarget="actionSwitchDiv" class="sdProperty sdCheckbox" type="radio" name="rdAction" oninput="setSettings(); updateDisplay('deviceSwitch', this); refreshDevice();">
+                    <label for="actionSwitch" class="sdpi-item-label"><span></span>Switch</label>
+                </div>
+            </div>
+        </div>
+        <div id="actionSetDiv" style="display: none;">
+            <div type="radio" class="sdpi-item" id="typeDevice">
+                <div class="sdpi-item-label">Icon</div>
+                <div class="sdpi-item-value ">
+                    <div class="sdpi-item-child">
+                        <input id="typeDeviceHeadphone" class="sdProperty sdCheckbox" type="radio" name="typeDevice" oninput="setSettings();">
+                        <label for="typeDeviceHeadphone" class="sdpi-item-label"><span></span>Headphone</label>
+                    </div>
+                    <div class="sdpi-item-child">
+                        <input id="typeDeviceSpeaker" class="sdProperty sdCheckbox" type="radio" name="typeDevice" oninput="setSettings();">
+                        <label for="typeDeviceSpeaker" class="sdpi-item-label"><span></span>Speaker</label>
+                    </div>
+                </div>
+            </div>
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Target</div>
+                <div class="sdpi-item-value ">
+                    <select class="sdpi-item-value select sdProperty sdList" id="devicesSet" oninput="setSettings()" sdListTextProperty="name" sdListValueProperty="id" sdValueField="deviceSet"></select>
+                </div>
+            </div>
+        </div>
+        <div id="actionSwitchDiv" style="display: none;">
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Device 1</div>
+                <div class="sdpi-item-value ">
+                    <select class="sdpi-item-value select sdProperty sdList" id="devicesOne" oninput="setSettings()" sdListTextProperty="name" sdListValueProperty="id" sdValueField="deviceOne"></select>
+                </div>
+            </div>
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Device 2</div>
+                <div class="sdpi-item-value ">
+                    <select class="sdpi-item-value select sdProperty sdList" id="devicesTwo" oninput="setSettings()" sdListTextProperty="name" sdListValueProperty="id" sdValueField="deviceTwo"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
