@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>MrAyianaLex's Sonar plugin</title>
+    <link rel="stylesheet" href="../css/sdpi.css">
+    <script src="../js/sdtools.common.js"></script>
+    <script src="../js/hiddendiv.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Device</div>
+            <select class="sdpi-item-value select sdProperty" id="outputDevice" oninput="setSettings()">
+                <option value="0">Monitoring</option>
+                <option value="1">Streaming</option>
+            </select>
+        </div>
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Input</div>
+            <select class="sdpi-item-value select sdProperty" id="inputDevice" oninput="setSettings()">
+                <option value="0">Game</option>
+                <option value="1">Chat</option>
+                <option value="2">Media</option>
+                <option value="3">Aux</option>
+                <option value="4">Micro</option>
+            </select>
+        </div>
+        <div type="radio" class="sdpi-item" id="render">
+            <div class="sdpi-item-label">Action</div>
+            <div class="sdpi-item-value ">
+                <div class="sdpi-item-child">
+                    <input id="renderHorizontal" switchtarget="rdMute" class="sdProperty sdCheckbox" type="radio" name="rdRender" oninput="setSettings();">
+                    <label for="renderHorizontal" class="sdpi-item-label"><span></span>Horizontal</label>
+                </div>
+                <div class="sdpi-item-child">
+                    <input id="renderVertical" switchtarget="step-item" class="sdProperty sdCheckbox" type="radio" name="rdRender" oninput="setSettings();">
+                    <label for="renderVertical" class="sdpi-item-label"><span></span>Vertical</label>
+                </div>
+                <div class="sdpi-item-child">
+                    <input id="renderCircle" switchtarget="set-item" class="sdProperty sdCheckbox" type="radio" name="rdRender" oninput="setSettings();">
+                    <label for="renderCircle" class="sdpi-item-label"><span></span>Circle</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

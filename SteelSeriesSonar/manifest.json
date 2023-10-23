@@ -114,6 +114,23 @@
       "PropertyInspectorPath": "PropertyInspector/SteelSeries/inputvolume.html"
     },
     {
+      "Icon": "Images/set_micro_mono",
+      "Name": "Display Input volume",
+      "States": [
+        {
+          "Image": "Images/set_micro_mono",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Display input volume level",
+      "UUID": "com.mrayianalex.sonar.displayinputdevice",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/displayinputvolume.html"
+    },
+    {
       "Icon": "Images/set_monitoring_speaker_mono",
       "Name": "Output Device config",
       "States": [
@@ -174,6 +191,23 @@
       "Tooltip": "Modify Setting - Set output config (Adjust volume, Set Volume, Set Mute)",
       "UUID": "com.mrayianalex.sonar.outputvolume",
       "PropertyInspectorPath": "PropertyInspector/SteelSeries/outputvolume.html"
+    },
+    {
+      "Icon": "Images/volume_set",
+      "Name": "Display Output volume",
+      "States": [
+        {
+          "Image": "Images/volume_set",
+          "TitleAlignment": "bottom",
+          "FontSize": "11"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "DisableCaching": true,
+      "UserTitleEnabled": true,
+      "Tooltip": "Display output volume level",
+      "UUID": "com.mrayianalex.sonar.displayoutputdevice",
+      "PropertyInspectorPath": "PropertyInspector/SteelSeries/displayoutputvolume.html"
     },
     {
       "Icon": "Images/stream_return",

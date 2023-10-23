@@ -13,6 +13,10 @@ Source SDK : [StreamDeck Tools](https://github.com/BarRaider/streamdeck-tools)
 Source des images : [Dazzle Live icon](https://www.svgrepo.com/collection/dazzle-line-icons/)
 
 # Change Log
+### Version 1.1 is out!
+Fix the return value for Monitoring in stream mode
+Add button for display volume on a button
+
 ### Version 1.0 is out!
 This version allows you to do these actions :
 - activate / deactivate streamer mode
@@ -21,6 +25,3 @@ This version allows you to do these actions :
 - manage volumes / fall via buttons
 - activate / deactivate the return of stream mode
 - allows you to change the assignment of a device via the buttons
-
-# Todo
-Buttons for visualise volume (like Volume Controller from ElGato)
