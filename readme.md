@@ -5,6 +5,9 @@
 ## Library Features
 I recomande "Win Tools" from barraider for controle the volume of audio device used with stream mode.
 
+## required
+[.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+
 ## Source
 Help Sonar's API : [Wex's depot](https://github.com/wex/sonar-rev)
 
