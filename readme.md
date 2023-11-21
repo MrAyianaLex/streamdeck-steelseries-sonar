@@ -19,11 +19,14 @@ Source SDK : [StreamDeck Tools](https://github.com/BarRaider/streamdeck-tools)
 Source des images : [Dazzle Live icon](https://www.svgrepo.com/collection/dazzle-line-icons/)  
 
 # Change Log
-### Version 1.1 is out!
+### Version 1.2 is out
+Fix for international use
+
+### Version 1.1
 Fix the return value for Monitoring in stream mode
 Add button for display volume on a button
 
-### Version 1.0 is out!
+### Version 1.0
 This version allows you to do these actions :
 - activate / deactivate streamer mode
 - manage the balance between the cat and the game via the dials
