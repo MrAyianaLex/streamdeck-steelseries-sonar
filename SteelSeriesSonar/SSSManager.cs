@@ -1,5 +1,6 @@
-﻿using BarRaider.SdTools;
+using BarRaider.SdTools;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 using System.Net;
 using System.Text.Json;
 
@@ -129,7 +130,7 @@ namespace SteelSeriesSonar
             // récupération du mode (Classic ou Stream)
             global.ModeValue = GetDataToString("mode").Replace("\"", "");
             // récupération des données du ChatMix (Volume + Activation)
-            global.ChatMixBalance = float.Parse(GetDataFromJSON("chatMix", "balance").Replace(".", ","));
+            global.ChatMixBalance = float.Parse(GetDataFromJSON("chatMix", "balance"), new CultureInfo("en-US"));
             if (GetDataFromJSON("chatMix", "state") == "enabled")
                 global.ChatMixEnabled = true;
             else
@@ -190,12 +191,12 @@ namespace SteelSeriesSonar
             {
                 JsonElement ClassicData = DataJSON.RootElement;
                 // volume
-                global.ClassicGameVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("game").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
-                global.ClassicChatVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("chatRender").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
-                global.ClassicMediaVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("media").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
-                global.ClassicAuxVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("aux").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
-                global.ClassicMicroVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("chatCapture").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
-                global.ClassicMasterVolume = float.Parse(ClassicData.GetProperty("masters").GetProperty("classic").GetProperty("volume").ToString().Replace(".", ","));
+                global.ClassicGameVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("game").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.ClassicChatVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("chatRender").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.ClassicMediaVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("media").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.ClassicAuxVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("aux").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.ClassicMicroVolume = float.Parse(ClassicData.GetProperty("devices").GetProperty("chatCapture").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.ClassicMasterVolume = float.Parse(ClassicData.GetProperty("masters").GetProperty("classic").GetProperty("volume").ToString(), new CultureInfo("en-US"));
                 // mute
                 global.ClassicGameMute = ClassicData.GetProperty("devices").GetProperty("game").GetProperty("classic").GetProperty("muted").GetBoolean();
                 global.ClassicChatMute = ClassicData.GetProperty("devices").GetProperty("chatRender").GetProperty("classic").GetProperty("muted").GetBoolean();
@@ -209,12 +210,12 @@ namespace SteelSeriesSonar
             {
                 JsonElement StreamerData = DataJSON.RootElement;
                 // monitoring volume
-                global.StreamerMonitoringGameVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerMonitoringChatVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerMonitoringMediaVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("media").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerMonitoringAuxVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("aux").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerMonitoringMicroVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatCapture").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerMonitoringMasterVolume = float.Parse(StreamerData.GetProperty("masters").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString().Replace(".", ","));
+                global.StreamerMonitoringGameVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerMonitoringChatVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerMonitoringMediaVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("media").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerMonitoringAuxVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("aux").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerMonitoringMicroVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatCapture").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerMonitoringMasterVolume = float.Parse(StreamerData.GetProperty("masters").GetProperty("stream").GetProperty("monitoring").GetProperty("volume").ToString(), new CultureInfo("en-US"));
                 // monitoring mute
                 global.StreamerMonitoringGameMute = StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("monitoring").GetProperty("muted").GetBoolean();
                 global.StreamerMonitoringChatMute = StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("monitoring").GetProperty("muted").GetBoolean();
@@ -223,12 +224,12 @@ namespace SteelSeriesSonar
                 global.StreamerMonitoringMicroMute = StreamerData.GetProperty("devices").GetProperty("chatCapture").GetProperty("stream").GetProperty("monitoring").GetProperty("muted").GetBoolean();
                 global.StreamerMonitoringMasterMute = StreamerData.GetProperty("masters").GetProperty("stream").GetProperty("monitoring").GetProperty("muted").GetBoolean();
                 // streaming volume
-                global.StreamerStreamingGameVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerStreamingChatVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerStreamingMediaVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("media").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerStreamingAuxVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("aux").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerStreamingMicroVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatCapture").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
-                global.StreamerStreamingMasterVolume = float.Parse(StreamerData.GetProperty("masters").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString().Replace(".", ","));
+                global.StreamerStreamingGameVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerStreamingChatVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerStreamingMediaVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("media").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerStreamingAuxVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("aux").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerStreamingMicroVolume = float.Parse(StreamerData.GetProperty("devices").GetProperty("chatCapture").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
+                global.StreamerStreamingMasterVolume = float.Parse(StreamerData.GetProperty("masters").GetProperty("stream").GetProperty("streaming").GetProperty("volume").ToString(), new CultureInfo("en-US"));
                 // streaming mute
                 global.StreamerStreamingGameMute = StreamerData.GetProperty("devices").GetProperty("game").GetProperty("stream").GetProperty("streaming").GetProperty("muted").GetBoolean();
                 global.StreamerStreamingChatMute = StreamerData.GetProperty("devices").GetProperty("chatRender").GetProperty("stream").GetProperty("streaming").GetProperty("muted").GetBoolean();
