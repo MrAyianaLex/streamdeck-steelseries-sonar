@@ -20,11 +20,15 @@ namespace SteelSeriesSonar
                     ActionMute = false,
                     ActionAdjust = false,
                     ActionSet = false,
+                    ActionRouting = false,
                     MuteOn = false,
                     MuteSwitch = false,
                     MuteOff = false,
                     Step = DEFAULT_STEP_SIZE,
-                    VolumeSet = 0.00
+                    VolumeSet = 0.00,
+                    RoutingOn = false,
+                    RoutingSwitch = false,
+                    RoutingOff = false
                 };
                 return instance;
             }
@@ -44,6 +48,9 @@ namespace SteelSeriesSonar
             [JsonProperty(PropertyName = "setVolume")]
             public bool ActionSet { get; set; }
 
+            [JsonProperty(PropertyName = "setRouting")]
+            public bool ActionRouting { get; set; }
+
             [JsonProperty(PropertyName = "mute_on")]
             public bool MuteOn { get; set; }
 
@@ -58,6 +65,15 @@ namespace SteelSeriesSonar
 
             [JsonProperty(PropertyName = "volumeValue")]
             public double VolumeSet { get; set; }
+
+            [JsonProperty(PropertyName = "routing_on")]
+            public bool RoutingOn { get; set; }
+
+            [JsonProperty(PropertyName = "routing_switch")]
+            public bool RoutingSwitch { get; set; }
+
+            [JsonProperty(PropertyName = "routing_off")]
+            public bool RoutingOff { get; set; }
         }
 
         #region Private members
@@ -81,7 +97,27 @@ namespace SteelSeriesSonar
             @"Images/set_micro_mute_off@2x.png",
             @"Images/set_micro_mute_switch@2x.png",
             @"Images/set_micro_mute_switch_off@2x.png",
-            @"Images/set_micro_mute_switch_on@2x.png"
+            @"Images/set_micro_mute_switch_on@2x.png",
+            @"Images/routing_stream_game@2x.png",
+            @"Images/routing_stream_chat@2x.png",
+            @"Images/routing_stream_media@2x.png",
+            @"Images/routing_stream_aux@2x.png",
+            @"Images/routing_stream_micro@2x.png",
+            @"Images/routing_stream_game_lock@2x.png",
+            @"Images/routing_stream_chat_lock@2x.png",
+            @"Images/routing_stream_media_lock@2x.png",
+            @"Images/routing_stream_aux_lock@2x.png",
+            @"Images/routing_stream_micro_lock@2x.png",
+            @"Images/routing_monitoring_game@2x.png",
+            @"Images/routing_monitoring_chat@2x.png",
+            @"Images/routing_monitoring_media@2x.png",
+            @"Images/routing_monitoring_aux@2x.png",
+            @"Images/routing_monitoring_micro@2x.png",
+            @"Images/routing_monitoring_game_lock@2x.png",
+            @"Images/routing_monitoring_chat_lock@2x.png",
+            @"Images/routing_monitoring_media_lock@2x.png",
+            @"Images/routing_monitoring_aux_lock@2x.png",
+            @"Images/routing_monitoring_micro_lock@2x.png"
         };
         private string mainImageStr;
         private bool didSetNotConnected = false;
@@ -128,6 +164,8 @@ namespace SteelSeriesSonar
             }
             if (global.ModeValue == "classic" && settings.OutputDevice == typeReturn.Streaming)
                 return;
+            else if (global.ModeValue == "classic" && settings.ActionRouting)
+                return;
             // action
             if (settings.ActionMute)
             {
@@ -149,6 +187,15 @@ namespace SteelSeriesSonar
             }
             else if (settings.ActionSet)
                 PutString = GenerateURI(global, settings.OutputDevice, "SetVolume", settings.InputDevice) + (settings.VolumeSet / 100).ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            else if (settings.ActionRouting)
+            {
+                if (settings.RoutingSwitch)
+                    PutString = GenerateURI(global, settings.OutputDevice, "SetRouting", settings.InputDevice) + BoolToString(!ReturnRouting(global, settings.OutputDevice, settings.InputDevice));
+                else if (settings.RoutingOff)
+                    PutString = GenerateURI(global, settings.OutputDevice, "SetRouting", settings.InputDevice) + "false";
+                else if (settings.RoutingOn)
+                    PutString = GenerateURI(global, settings.OutputDevice, "SetRouting", settings.InputDevice) + "true";
+            }
             // envoie de la maj
             PutData(PutString);
             SetGlobalSettings();
@@ -219,6 +266,32 @@ namespace SteelSeriesSonar
             }
             else if (settings.ActionSet)
                 PrefetchImages(DEFAULT_IMAGES, 1);
+            else if (settings.ActionRouting)
+            {
+                var delta_img_lock = 0;
+                if (global.ModeValue == "classic")
+                    delta_img_lock = 5;
+                if (settings.OutputDevice == typeReturn.Monitoring)
+                    delta_img_lock += 10;
+                switch (settings.InputDevice)
+                {
+                    case typeRole.game:
+                        PrefetchImages(DEFAULT_IMAGES, 13 + delta_img_lock);
+                        break;
+                    case typeRole.chatRender:
+                        PrefetchImages(DEFAULT_IMAGES, 14 + delta_img_lock);
+                        break;
+                    case typeRole.media:
+                        PrefetchImages(DEFAULT_IMAGES, 15 + delta_img_lock);
+                        break;
+                    case typeRole.aux:
+                        PrefetchImages(DEFAULT_IMAGES, 16 + delta_img_lock);
+                        break;
+                    case typeRole.chatCapture:
+                        PrefetchImages(DEFAULT_IMAGES, 17 + delta_img_lock);
+                        break;
+                }
+            }
             Connection.SetImageAsync(mainImageStr);
         }
 

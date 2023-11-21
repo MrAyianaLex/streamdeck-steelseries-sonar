@@ -24,6 +24,8 @@ function showHideSettings(payload) {
         document.getElementById('step-item').style.display = 'block';
     if (payload['setVolume'])
         document.getElementById('set-item').style.display = 'block';
+    if (payload['setRouting'])
+        document.getElementById('rdRouting').style.display = 'block';
     if (payload['actionSet'])
         document.getElementById('actionSetDiv').style.display = 'block';
     if (payload['actionSwitch'])

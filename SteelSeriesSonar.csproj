@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SteelSeriesSonar\Actions\SonarSwitchInputDevice.cs~RF55b921.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="StreamDeck-Tools" Version="6.1.1" />
   </ItemGroup>
 

@@ -19,7 +19,11 @@ Source SDK : [StreamDeck Tools](https://github.com/BarRaider/streamdeck-tools)
 Source des images : [Dazzle Live icon](https://www.svgrepo.com/collection/dazzle-line-icons/)  
 
 # Change Log
-### Version 1.2 is out
+### Version 1.3 is out
+Fix micro device switch on Classic Mode
+Add, on input volume, management of the routing of peripherals
+
+### Version 1.2
 Fix for international use
 
 ### Version 1.1

@@ -110,7 +110,7 @@ namespace SteelSeriesSonar
             if (settings.ActionSet)
             {
                 if (global.ModeValue == "classic")
-                    PutString = "classicRedirections/chatCapture/deviceId/" + settings.DeviceSet;
+                    PutString = "classicRedirections/mic/deviceId/" + settings.DeviceSet;
                 else
                     PutString = "streamRedirections/mic/deviceId/" + settings.DeviceSet;
             }
@@ -119,9 +119,9 @@ namespace SteelSeriesSonar
                 if (global.ModeValue == "classic")
                 {
                     if (global.ClassicMicroDeviceId == settings.DeviceTwo)
-                        PutString = "classicRedirections/chatCapture/deviceId/" + settings.DeviceOne;
+                        PutString = "classicRedirections/mic/deviceId/" + settings.DeviceOne;
                     else
-                        PutString = "classicRedirections/chatCapture/deviceId/" + settings.DeviceTwo;
+                        PutString = "classicRedirections/mic/deviceId/" + settings.DeviceTwo;
                 }
                 else
                 {

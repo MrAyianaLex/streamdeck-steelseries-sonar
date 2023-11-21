@@ -409,6 +409,45 @@ namespace SteelSeriesSonar
                     }
                 }
             }
+            else if (Action == "SetRouting")
+            {
+                if (OutputDevice == typeReturn.Streaming)
+                {
+                    switch (InputDevice)
+                    {
+                        case typeRole.game:
+                            return "streamRedirections/streaming/redirections/game/isEnabled/";
+                        case typeRole.chatRender:
+                            return "streamRedirections/streaming/redirections/chatRender/isEnabled/";
+                        case typeRole.media:
+                            return "streamRedirections/streaming/redirections/media/isEnabled/";
+                        case typeRole.aux:
+                            return "streamRedirections/streaming/redirections/aux/isEnabled/";
+                        case typeRole.chatCapture:
+                            return "streamRedirections/streaming/redirections/chatCapture/isEnabled/";
+                        default:
+                            return "streamRedirections/streaming/redirections/master/isEnabled/";
+                    }
+                }
+                else
+                {
+                    switch (InputDevice)
+                    {
+                        case typeRole.game:
+                            return "streamRedirections/monitoring/redirections/game/isEnabled/";
+                        case typeRole.chatRender:
+                            return "streamRedirections/monitoring/redirections/chatRender/isEnabled/";
+                        case typeRole.media:
+                            return "streamRedirections/monitoring/redirections/media/isEnabled/";
+                        case typeRole.aux:
+                            return "streamRedirections/monitoring/redirections/aux/isEnabled/";
+                        case typeRole.chatCapture:
+                            return "streamRedirections/monitoring/redirections/chatCapture/isEnabled/";
+                        default:
+                            return "streamRedirections/monitoring/redirections/master/isEnabled/";
+                    }
+                }
+            }
             return "toto";
         }
         public static bool ReturnMute(SonarGlobalSettings global, typeReturn OutputDevice, typeRole InputDevice = typeRole.none)
@@ -528,6 +567,45 @@ namespace SteelSeriesSonar
                         default:
                             return global.StreamerStreamingMasterVolume;
                     }
+                }
+            }
+        }
+        public static bool ReturnRouting(SonarGlobalSettings global, typeReturn OutputDevice, typeRole InputDevice = typeRole.none)
+        {
+            if (OutputDevice == typeReturn.Streaming)
+            {
+                switch (InputDevice)
+                {
+                    case typeRole.game:
+                        return global.StreamerStreamingGameSend;
+                    case typeRole.chatRender:
+                        return global.StreamerStreamingChatSend;
+                    case typeRole.media:
+                        return global.StreamerStreamingMediaSend;
+                    case typeRole.aux:
+                        return global.StreamerStreamingAuxSend;
+                    case typeRole.chatCapture:
+                        return global.StreamerStreamingMicroSend;
+                    default:
+                        return global.StreamerStreamingMasterSend;
+                }
+            }
+            else
+            {
+                switch (InputDevice)
+                {
+                    case typeRole.game:
+                        return global.StreamerMonitoringGameSend;
+                    case typeRole.chatRender:
+                        return global.StreamerMonitoringChatSend;
+                    case typeRole.media:
+                        return global.StreamerMonitoringMediaSend;
+                    case typeRole.aux:
+                        return global.StreamerMonitoringAuxSend;
+                    case typeRole.chatCapture:
+                        return global.StreamerMonitoringMicroSend;
+                    default:
+                        return global.StreamerStreamingMasterSend;
                 }
             }
         }

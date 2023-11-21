@@ -44,6 +44,10 @@
                     <input id="setVolume" switchtarget="set-item" class="sdProperty sdCheckbox" type="radio" name="rdApplication" oninput="setSettings(); updateDisplay('volume',this);">
                     <label for="setVolume" class="sdpi-item-label"><span></span>Set Volume</label>
                 </div>
+                <div class="sdpi-item-child">
+                    <input id="setRouting" switchtarget="rdRouting" class="sdProperty sdCheckbox" type="radio" name="rdApplication" oninput="setSettings(); updateDisplay('volume',this);">
+                    <label for="setRouting" class="sdpi-item-label"><span></span>Set Routing</label>
+                </div>
             </div>
         </div>
         <div id="rdMute" style="display: none;">
@@ -80,6 +84,25 @@
                 <div class="sdpi-item-label">Volume</div>
                 <div class="sdpi-item-value">
                     <input name="volumeValue" id="volumeValue" type="number" min="0" max="100" class="sdProperty" oninput="setSettings()">
+                </div>
+            </div>
+        </div>
+        <div id="rdRouting" style="display: none;">
+            <div type="radio" class="sdpi-item">
+                <div class="sdpi-item-label">Mute</div>
+                <div class="sdpi-item-value ">
+                    <div class="sdpi-item-child">
+                        <input id="routing_on" class="sdProperty sdCheckbox" type="radio" name="routingValue" oninput="setSettings()">
+                        <label for="routing_on" class="sdpi-item-label"><span></span>On</label>
+                    </div>
+                    <div class="sdpi-item-child">
+                        <input id="routing_switch" class="sdProperty sdCheckbox" type="radio" name="routingValue" oninput="setSettings()">
+                        <label for="routing_switch" class="sdpi-item-label"><span></span>Switch</label>
+                    </div>
+                    <div class="sdpi-item-child">
+                        <input id="routing_off" class="sdProperty sdCheckbox" type="radio" name="routingValue" oninput="setSettings()">
+                        <label for="routing_off" class="sdpi-item-label"><span></span>Off</label>
+                    </div>
                 </div>
             </div>
         </div>
