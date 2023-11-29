@@ -143,11 +143,24 @@ namespace SteelSeriesSonar
             // pause d'une second
             Thread.Sleep(50);
             // récupération des informations sur l'envoie des données sur le streaming
-            using (JsonDocument DataJSON = JsonDocument.Parse(GetDataToString("streamRedirections/monitoring")))
+            using (JsonDocument DataJSON = JsonDocument.Parse(GetDataToString("streamRedirections")))
             {
                 JsonElement StreamerRedirectionsData = DataJSON.RootElement;
                 for (int i = 0; i < StreamerRedirectionsData.GetArrayLength(); i++)
                 {
+                    // récupération des deviceId pour le mode stream
+                    switch (StreamerRedirectionsData[i].GetProperty("streamRedirectionId").ToString())
+                    {
+                        case "streaming":
+                            global.StreamerStreamingDeviceId = StreamerRedirectionsData[i].GetProperty("deviceId").ToString();
+                            break;
+                        case "monitoring":
+                            global.StreamerMonitoringDeviceId = StreamerRedirectionsData[i].GetProperty("deviceId").ToString();
+                            break;
+                        case "mic":
+                            global.StreamerMicroDeviceId = StreamerRedirectionsData[i].GetProperty("deviceId").ToString();
+                            break;
+                    }
                     for (int j = 0; j < StreamerRedirectionsData[i].GetProperty("status").GetArrayLength(); j++)
                     {
                         switch (StreamerRedirectionsData[i].GetProperty("streamRedirectionId").ToString() + " : " + StreamerRedirectionsData[i].GetProperty("status")[j].GetProperty("role").ToString())
@@ -260,26 +273,6 @@ namespace SteelSeriesSonar
                             break;
                         case "mic":
                             global.ClassicMicroDeviceId = classicRedirections[i].GetProperty("deviceId").ToString();
-                            break;
-                    }
-                }
-            }
-            // récupération des deviceId pour le mode stream
-            using (JsonDocument DataJSON = JsonDocument.Parse(GetDataToString("streamRedirections")))
-            {
-                JsonElement streamRedirections = DataJSON.RootElement;
-                for (int i = 0; i < streamRedirections.GetArrayLength(); i++)
-                {
-                    switch (streamRedirections[i].GetProperty("streamRedirectionId").ToString())
-                    {
-                        case "streaming":
-                            global.StreamerStreamingDeviceId = streamRedirections[i].GetProperty("deviceId").ToString();
-                            break;
-                        case "monitoring":
-                            global.StreamerMonitoringDeviceId = streamRedirections[i].GetProperty("deviceId").ToString();
-                            break;
-                        case "mic":
-                            global.StreamerMicroDeviceId = streamRedirections[i].GetProperty("deviceId").ToString();
                             break;
                     }
                 }

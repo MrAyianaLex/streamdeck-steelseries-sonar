@@ -19,7 +19,10 @@ Source SDK : [StreamDeck Tools](https://github.com/BarRaider/streamdeck-tools)
 Source des images : [Dazzle Live icon](https://www.svgrepo.com/collection/dazzle-line-icons/)  
 
 # Change Log
-### Version 1.3 is out
+### Version 1.4 is out
+Fix for sonar 52.0.0
+
+### Version 1.3
 Fix micro device switch on Classic Mode
 Add, on input volume, management of the routing of peripherals
 
