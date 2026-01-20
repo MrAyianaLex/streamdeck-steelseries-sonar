@@ -1,3 +1,5 @@
+# Archive the 20/01/2026 because i do not use windows anymore
+
 # MrAyianaLex's Stream Deck Plugins
 
 ### Stream Deck plugin for comunicate with SteelSeries Sonar's
